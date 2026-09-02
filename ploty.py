@@ -4,6 +4,7 @@ import pandas as pd
 
 df = pd.read_csv("C:\\Users\\deves\\Conjugate-Gradient\\Conjugate-Gradient\\insurance.csv")
 x, y = df["age"].values, df["charges"].values
+print(x,y)
 A = np.column_stack([np.ones_like(x), x])
 M, v = A.T @ A, A.T @ y
 w = np.zeros(2)
@@ -23,7 +24,7 @@ b0, b1 = w
 
 # 3. Plot fit
 plt.figure(figsize=(6, 4))
-plt.scatter(x, y, s=10, alpha=0.25, color="gray", label="Kaggle data")
+plt.scatter(x, y, color="gray", label="Kaggle data")
 plt.plot(
     [x.min(), x.max()],
     [b0 + b1 * x.min(), b0 + b1 * x.max()],
